@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
 import { StyledInput, StyledForm, Wrapper } from './Filter.styled';
 export const Filter = ({ filter, find }) => {
   return (
