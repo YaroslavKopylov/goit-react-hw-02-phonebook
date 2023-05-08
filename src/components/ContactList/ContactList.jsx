@@ -8,7 +8,7 @@ import {
 export const ContactList = ({ filterContacts, onDelete }) => {
   return (
     <Wrapper>
-      {filterContacts().map(contact => (
+      {filterContacts.map(contact => (
         <ContactsText key={contact.id}>
           <ContactSpan>
             {contact.name}: {contact.number}
@@ -28,7 +28,7 @@ export const ContactList = ({ filterContacts, onDelete }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
+  contact: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,

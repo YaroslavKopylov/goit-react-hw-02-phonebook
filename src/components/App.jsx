@@ -16,8 +16,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
   addContacts = newContact => {
     const isExist = this.state.contacts.find(
@@ -46,17 +44,12 @@ export class App extends Component {
   };
 
   onFilterContacts = () => {
-    let filterContact = [];
-    if (this.state.filter) {
-      filterContact = this.state.contacts.filter(
-        contact =>
-          contact.name.includes(this.state.filter) ||
-          contact.name.toLowerCase().includes(this.state.filter)
-      );
-    } else {
-      return this.state.contacts;
-    }
-    return filterContact;
+    const { contacts, filter } = this.state;
+    return filter
+      ? contacts.filter(contact =>
+          contact.name.toLowerCase().includes(filter.toLowerCase())
+        )
+      : contacts;
   };
   render() {
     return (
@@ -66,9 +59,8 @@ export class App extends Component {
         <Filter filter={this.state.filter} find={this.onFilter} />
         <Title title="Contacts" />
         <ContactList
-          contacts={this.state.contacts}
           onDelete={this.deleteContact}
-          filterContacts={this.onFilterContacts}
+          filterContacts={this.onFilterContacts()}
         />
         <GlobalStyle />
       </Div>
