@@ -17,6 +17,7 @@ export class App extends Component {
     ],
     filter: '',
   };
+ 
   addContacts = newContact => {
     const isExist = this.state.contacts.find(
       ({ name }) => name.toLowerCase() === newContact.name.toLowerCase()
@@ -45,11 +46,9 @@ export class App extends Component {
 
   onFilterContacts = () => {
     const { contacts, filter } = this.state;
-    return filter
-      ? contacts.filter(contact =>
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-        )
-      : contacts;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
   render() {
     return (

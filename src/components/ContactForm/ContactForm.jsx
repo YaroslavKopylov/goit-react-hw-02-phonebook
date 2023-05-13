@@ -16,7 +16,6 @@ export const ContactForm = ({ onAdd }) => {
   return (
     <Formik
       initialValues={{
-        contacts: [],
         name: '',
         number: '',
       }}
